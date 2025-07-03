@@ -14,8 +14,7 @@ This Power BI project visualizes key financial metrics from our latest data repo
 
 ## 🔍 Data Source
 
-This dataset was sourced from **Kaggle**, courtesy of **Rahim Zulfiqar Ali**, who curated and published the original financial data.  
-You can find the original dataset [here](https://www.kaggle.com/rahimzulfiqarali/sales-data).
+This dataset was sourced from [Kaggle – Financial Dataset Sample](https://www.kaggle.com/datasets/rahimzulfiqarali/financial-dataset-sample), courtesy of **Rahim Zulfiqar Ali**, who curated and published the original financial data.
 
 ## 📌 Features
 
