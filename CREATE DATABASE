@@ -1,0 +1,53 @@
+-- Create database
+--CREATE DATABASE FinancialAnalysis;
+--GO
+
+USE FinancialAnalysis;
+GO
+
+-- Create tables with proper data modeling
+CREATE TABLE DimSegment (
+    SegmentID INT IDENTITY(1,1) PRIMARY KEY,
+    SegmentName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE DimCountry (
+    CountryID INT IDENTITY(1,1) PRIMARY KEY,
+    CountryName VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE DimProduct (
+    ProductID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductName VARCHAR(150) NOT NULL,
+    ProductCode VARCHAR(50),
+    ManufacturingPrice DECIMAL(10,2)
+);
+
+CREATE TABLE DimDate (
+    DateID INT PRIMARY KEY,
+    FullDate DATE NOT NULL,
+    Day INT NOT NULL,
+    Month INT NOT NULL,
+    MonthName VARCHAR(15) NOT NULL,
+    Quarter INT NOT NULL,
+    Year INT NOT NULL
+);
+
+CREATE TABLE FactSales (
+    SalesID INT IDENTITY(1,1) PRIMARY KEY,
+    DateID INT FOREIGN KEY REFERENCES DimDate(DateID),
+    SegmentID INT FOREIGN KEY REFERENCES DimSegment(SegmentID),
+    CountryID INT FOREIGN KEY REFERENCES DimCountry(CountryID),
+    ProductID INT FOREIGN KEY REFERENCES DimProduct(ProductID),
+    UnitsSold INT NOT NULL,
+    SalePrice DECIMAL(10,2) NOT NULL,
+    GrossSales DECIMAL(15,2) NOT NULL,
+    Discounts DECIMAL(15,2) NOT NULL,
+    Sales DECIMAL(15,2) NOT NULL,
+    COGS DECIMAL(15,2) NOT NULL,
+    Profit DECIMAL(15,2) NOT NULL
+);
+
+
+
+
